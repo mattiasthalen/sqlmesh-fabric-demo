@@ -82,19 +82,19 @@ export CREDENTIALS__AZURE_CLIENT_SECRET="your-client-secret"
 
 ```bash
 # Validate configuration and models
-sqlmesh validate
+uv run sqlmesh validate
 
 # Run tests
-sqlmesh test
+uv run sqlmesh test
 
 # Preview changes for development
-sqlmesh plan dev
+uv run sqlmesh plan dev
 
 # Deploy to production
-sqlmesh plan prod --auto-apply
+uv run sqlmesh plan prod --auto-apply
 
 # Launch interactive UI
-sqlmesh ui
+uv run sqlmesh ui
 ```
 
 ## Running in Microsoft Fabric
@@ -143,8 +143,8 @@ The project includes:
 
 Run all tests:
 ```bash
-sqlmesh test
-sqlmesh audit
+uv run sqlmesh test
+uv run sqlmesh audit
 ```
 
 ## Configuration
@@ -181,10 +181,10 @@ Edit `config.yaml` to configure:
 ### Local Development
 ```bash
 # Run with local changes
-sqlmesh plan dev
+uv run sqlmesh plan dev
 
 # Test before deployment
-sqlmesh test
+uv run sqlmesh test
 ```
 
 ### Fabric Notebook Deployment
@@ -193,7 +193,7 @@ Import and run `notebooks/sqlmesh__runner.ipynb` in your Fabric workspace for au
 ### CI/CD Pipeline
 ```bash
 # In your pipeline
-sqlmesh plan prod --auto-apply --no-prompts
+uv run sqlmesh plan prod --auto-apply --no-prompts
 ```
 
 ## Security Setup

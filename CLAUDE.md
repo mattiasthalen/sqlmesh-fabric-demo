@@ -59,37 +59,37 @@ pip install "sqlmesh[fabric,mssql,lsp] @ git+https://github.com/TobikoData/sqlme
 ### SQLMesh Commands
 ```bash
 # Run plan for development environment
-sqlmesh plan dev
+uv run sqlmesh plan dev
 
 # Run plan for production with auto-apply
-sqlmesh plan prod --run --auto-apply --no-prompts
+uv run sqlmesh plan prod --run --auto-apply --no-prompts
 
 # Include unmodified models in plan
-sqlmesh plan prod --run --auto-apply --no-prompts --include-unmodified
+uv run sqlmesh plan prod --run --auto-apply --no-prompts --include-unmodified
 
 # Run tests
-sqlmesh test
+uv run sqlmesh test
 
 # Run audits
-sqlmesh audit
+uv run sqlmesh audit
 
 # UI for interactive development
-sqlmesh ui
+uv run sqlmesh ui
 
 # Validate models and configuration
-sqlmesh validate
+uv run sqlmesh validate
 
 # Format SQL files
-sqlmesh format
+uv run sqlmesh format
 ```
 
 ### Testing Individual Models
 ```bash
 # Test a specific model
-sqlmesh test tests/test_full_model.yaml
+uv run sqlmesh test tests/test_full_model.yaml
 
 # Run all tests
-sqlmesh test
+uv run sqlmesh test
 ```
 
 ## Architecture
