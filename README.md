@@ -69,13 +69,14 @@ pip install "sqlmesh[fabric,mssql,lsp]"
 
 3. Set environment variables:
 ```bash
-export FABRIC__WAREHOUSE_ENDPOINT="your-warehouse.datawarehouse.fabric.microsoft.com"
-export FABRIC__WORKSPACE_ID="your-workspace-id"
-export FABRIC__STATE_ENDPOINT="your-state-db.database.windows.net"
-export FABRIC__STATE_DATABASE="sqlmesh__state"
-export CREDENTIALS__AZURE_TENANT_ID="your-tenant-id"
-export CREDENTIALS__AZURE_CLIENT_ID="your-client-id"
-export CREDENTIALS__AZURE_CLIENT_SECRET="your-client-secret"
+export CREDENTIALS__AZURE_TENANT_ID="your_azure_tenant_id"
+export CREDENTIALS__AZURE_CLIENT_ID="your_azure_client_id"
+export CREDENTIALS__AZURE_CLIENT_SECRET="your_azure_client_secret"
+export FABRIC__WORKSPACE_ID="your_fabric_workspace_id"
+export FABRIC__SQL_ENDPOINT_ID="your_fabric_sql_endpoint_uuid"
+export FABRIC__WAREHOUSE_ENDPOINT="${FABRIC__SQL_ENDPOINT_ID}.datawarehouse.fabric.microsoft.com"
+export FABRIC__STATE_ENDPOINT="${FABRIC__SQL_ENDPOINT_ID}.database.fabric.microsoft.com"
+export FABRIC__STATE_DATABASE="your_state_database"
 ```
 
 ### Running SQLMesh Locally
