@@ -1,0 +1,48 @@
+# --- Gateway Connection ---
+gateways:
+  fabric:
+    connection:
+      # For more information on configuring the connection to your execution engine, visit:
+      # https://sqlmesh.readthedocs.io/en/stable/reference/configuration/#connection
+      # https://sqlmesh.readthedocs.io/en/stable/integrations/engines/fabric/#connection-options
+      type: fabric
+      host: {{ env_var('FABRIC__WAREHOUSE_ENDPOINT') }}
+      database: demo
+      workspace_id: {{ env_var('FABRIC__WORKSPACE_ID') }}
+      tenant_id: {{ env_var('CREDENTIALS__AZURE_TENANT_ID') }}
+      user: {{ env_var('CREDENTIALS__AZURE_CLIENT_ID') }}
+      password: {{ env_var('CREDENTIALS__AZURE_CLIENT_SECRET') }}
+      odbc_properties:
+        authentication: ActiveDirectoryServicePrincipal
+        
+    state_connection:
+      type: mssql
+      host: {{ env_var('FABRIC__STATE_ENDPOINT') }}
+      database: {{ env_var('FABRIC__STATE_DATABASE') }}
+      user: {{ env_var('CREDENTIALS__AZURE_CLIENT_ID') }}
+      password: {{ env_var('CREDENTIALS__AZURE_CLIENT_SECRET') }}
+      driver: pyodbc
+      driver_name: ODBC Driver 18 for SQL Server
+      odbc_properties:
+        authentication: ActiveDirectoryServicePrincipal
+
+default_gateway: fabric
+default_target_environment: dev
+
+# --- Model Defaults ---
+# https://sqlmesh.readthedocs.io/en/stable/reference/model_configuration/#model-defaults
+
+model_defaults:
+  dialect: fabric
+  start: 2025-08-18 # Start date for backfill history
+  cron: '@daily'    # Run models daily at 12am UTC (can override per model)
+
+# --- Linting Rules ---
+# Enforce standards for your team
+# https://sqlmesh.readthedocs.io/en/stable/guides/linter/
+
+linter:
+  enabled: true
+  rules:
+    - ambiguousorinvalidcolumn
+    - invalidselectstarexpansion

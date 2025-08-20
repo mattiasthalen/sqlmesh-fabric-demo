@@ -1,0 +1,12 @@
+[project]
+name = "sqlmesh-fabric-demo"
+version = "0.1.0"
+description = "Demo project for using SQLMesh in fabric"
+readme = "README.md"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    "sqlmesh[fabric,mssql,lsp]",
+]
+
+[tool.uv.sources]
+sqlmesh = { git = "https://github.com/TobikoData/sqlmesh.git", rev = "main" }

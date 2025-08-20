@@ -1,0 +1,8 @@
+{
+    "recommendations": [
+        "anthropic.claude-code",
+        "ms-python.python",
+        "tobikodata.sqlmesh",
+        "fabric.vscode-fabric"
+    ]
+}
