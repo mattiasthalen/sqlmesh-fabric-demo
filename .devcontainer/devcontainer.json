@@ -1,0 +1,22 @@
+{
+	"name": "sqlmesh-fabric-demo",
+	"image": "mcr.microsoft.com/devcontainers/universal:2",
+	"features": {
+		"ghcr.io/jlaundry/devcontainer-features/mssql-odbc-driver:1": {},
+		"ghcr.io/va-h/devcontainers-features/uv:1": {}
+	},
+	"postCreateCommand": "npm install -g @anthropic-ai/claude-code",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"Anthropic.claude-code",
+				"eamodio.gitlens",
+				"fabric.vscode-fabric",
+				"GitHub.copilot",
+				"ms-python.python",
+				"tobikodata.sqlmesh"
+			]
+		}
+	},
+	"runArgs": ["--env-file", ".env"]
+}
