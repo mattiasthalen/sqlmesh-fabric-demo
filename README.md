@@ -54,7 +54,7 @@ graph LR
 
 1. Clone the repository:
 ```bash
-git clone https://dev.azure.com/[your-org]/fabric/_git/sqlmesh_fabric_demo
+git clone https://github.com/mattiasthalen/sqlmesh-fabric-demo.git
 cd sqlmesh_fabric_demo
 ```
 
